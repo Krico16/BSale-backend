@@ -3,8 +3,8 @@ const { getProductsByCategory, getProductsByName } = require('./controller/produ
 const router = express.Router();
 const ProductController = require('./controller/product.controller');
 
-router.get('/:id',ProductController.getAllProducts)
-router.get('/',ProductController.getAllProducts)
+router.get('/',ProductController.getByParams)
+router.get('',ProductController.getByParams)
 
 router.get('/category/:id',getProductsByCategory)
 
