@@ -11,7 +11,8 @@ const Product = function (product) {
 
 Product.getWithParams = (page, category, name = '', result) => {
     var aditionalQuery = "";
-    if (category != null) aditionalQuery = `AND p.category = ${category}`;
+    console.log(category);
+    if (category != null && category ) aditionalQuery = `AND p.category = ${category}`;
 
     const itemsPerPage = 9;
     let total = `SELECT COUNT(p.id) as itemCount FROM product p inner join category c on p.category = c.id WHERE p.name LIKE ? ${aditionalQuery} `;
