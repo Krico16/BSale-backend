@@ -10,8 +10,7 @@ class ProductController {
     }
 
     getProductsByCategory = async (req, res, next) => {
-        const idCategory = (!isNaN(req.params.id)) ?? req.params.id;
-
+        const idCategory = (!isNaN(req.params.id)) ? req.params.id:0;
         await Product.getByCategory(idCategory, (data) => {
             return res.json({ done: true, data: { result: data } })
         })
